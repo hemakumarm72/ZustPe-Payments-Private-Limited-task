@@ -8,6 +8,7 @@ import userRouter from './Routers/user';
 
 const app = express();
 const port = process.env.PORT || 8000;
+const host = process.env.PORT || 'http://localhost';
 app.use(morgan('combined')); // adding morgan to log HTTP requests
 app.use(helmet()); // adding Helmet to enhance your API's security
 app.use(cors({
@@ -37,6 +38,6 @@ app.use('/user', userRouter);
 
 if (process.env.NODE_ENV !== 'test') {
   db.sequelize.sync().then(() => {
-    app.listen(port, () => console.log(`🚀 Running on http://localhost:${port}`));
+    app.listen(port, () => console.log(`🚀 Running on ${host}:${port}`));
   });
 }
