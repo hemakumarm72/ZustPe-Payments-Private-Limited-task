@@ -2,10 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
+import helmet from 'helmet';
+import morgan from 'morgan';
 import userRouter from './Routers/user';
 
 const app = express();
 const port = process.env.PORT || 8000;
+app.use(morgan('combined')); // adding morgan to log HTTP requests
+app.use(helmet()); // adding Helmet to enhance your API's security
 app.use(cors({
   origin: ['http://localhost:8000'],
   methods: ['GET', 'POST'],

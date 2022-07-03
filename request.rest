@@ -1,0 +1,11 @@
+GET http://localhost:8000/user/login
+
+
+
+
+###
+GET http://localhost:8000/user/register
+
+
+###
+GET http://localhost:8000/
