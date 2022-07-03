@@ -11,7 +11,7 @@ const port = process.env.PORT || 8000;
 app.use(morgan('combined')); // adding morgan to log HTTP requests
 app.use(helmet()); // adding Helmet to enhance your API's security
 app.use(cors({
-  origin: [`${process.env.HOST}:${process.env.PORT}
+  origin: [`${process.env.HOST}:${process.env.PORT || 8000}
 `],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']

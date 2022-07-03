@@ -2,16 +2,34 @@ import Sequelize from 'sequelize';
 import fs from 'fs';
 import path from 'path';
 
+import env from '../../config/env';
+
 const sequelize = new Sequelize(
-  'zustPe-payments-private-task',
-  'null',
-  'null',
+  env.database,
+  env.username,
+  env.password,
   {
 
-    dialect: 'sqlite',
-    storage: './db.sqlite',
-    define: {
+    host: env.host,
+    dialect: env.dialect,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+      keepAlive: true,
     },
+    pool: {
+      max: env.max,
+      min: env.pool.min,
+      acquire: env.pool.acquire,
+      idle: env.pool.idle,
+    },
+
+    // dialect: 'sqlite',
+    // storage: './db.sqlite',
+    // define: {
+    // },
   },
 
 );
