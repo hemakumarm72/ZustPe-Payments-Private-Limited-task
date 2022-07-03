@@ -10,7 +10,16 @@ const app = express();
 const port = process.env.PORT || 8000;
 app.use(morgan('combined')); // adding morgan to log HTTP requests
 app.use(helmet()); // adding Helmet to enhance your API's security
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      `${process.env.HOST}:${process.env.PORT || 8000}
+`,
+    ],
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 function ignoreFavicon(req, res, next) {
   if (req.originalUrl.includes('favicon.ico')) {
     res.status(204).end();
@@ -32,6 +41,8 @@ app.use('/user', userRouter);
 
 if (process.env.NODE_ENV !== 'test') {
   db.sequelize.sync().then(() => {
-    app.listen(port, () => console.log(`🚀 Running on http:${port}`));
+    app.listen(port, () =>
+      console.log(`🚀 Running on http://localhost:${port}`)
+    );
   });
 }
