@@ -15,10 +15,10 @@ const sequelize = new Sequelize(env.database, env.username, env.password, {
     keepAlive: true,
   },
   pool: {
-    max: env.pool.max,
-    min: env.pool.min,
-    acquire: env.pool.acquire,
-    idle: env.pool.idle,
+    max: env.max,
+    min: env.min,
+    acquire: env.acquire,
+    idle: env.idle,
   },
 
   // dialect: 'sqlite',
