@@ -1,0 +1,13 @@
+{
+    "development": {
+        "username": "null",
+        "password": null,
+        "database": "zustpe-payment-private",
+        "dialect": "sqlite",
+        "storage": "./db.sqlite",
+        "define": {
+            "underscored": true,
+            "freezeTableName": true
+        }
+    }
+}
