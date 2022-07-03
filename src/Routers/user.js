@@ -21,7 +21,7 @@ userRouter.post('/register', async (req, res) => {
       password,
     });
   } else {
-    return res.status(404).json('User already exist');
+    return res.status(200).json('User already exist');
   }
   return res.status(200).json('Registered user Successfully');
 });
@@ -30,7 +30,7 @@ userRouter.post('/login', async (req, res) => {
   const user = await db.user.findOne({ where: { email: req.body.email } });
 
   if (user === null) {
-    return res.status(404).json('Email not found');
+    return res.status(200).json('Email not found');
   }
 
   const hashtypes = JSON.stringify(user);
@@ -39,7 +39,7 @@ userRouter.post('/login', async (req, res) => {
   if (hash === true) {
     return res.status(200).json('Logged In Successfully');
   }
-  return res.status(404).json('Password is incorrect');
+  return res.status(200).json('Password is incorrect');
 });
 
 export default userRouter;
