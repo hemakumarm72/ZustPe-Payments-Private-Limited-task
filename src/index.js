@@ -7,7 +7,7 @@ const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(bodyParser.json());
 app.get('/', (req, res) => {
-  res.status(200).json('demo api');
+  res.status(200).json('zustpe payment  api');
 });
 
 app.get('/user', (req, res) => {
