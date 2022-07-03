@@ -21,3 +21,32 @@ content-type: application/json
     "email": "copycat@gmail.com",
     "password": "123"
 }
+
+###
+
+
+
+
+GET https://zustpe-payment-task.herokuapp.com/
+
+
+
+
+###
+POST  https://zustpe-payment-task.herokuapp.com/user/register
+content-type: application/json
+
+{
+    "email": "copycat@gmail.com",
+    "password": "123"
+}
+
+
+###
+POST https://zustpe-payment-task.herokuapp.com/user/login
+content-type: application/json
+
+{
+    "email": "copycat@gmail.com",
+    "password": "123"
+}
