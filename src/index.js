@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
+import userRouter from './Routers/user';
+
 const app = express();
 const port = process.env.PORT || 8000;
 app.use(cors({
@@ -20,7 +22,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.status(200).json('zustpe payment  api');
 });
-
+app.get('user/', userRouter);
 app.get('/user', (req, res) => {
   res.status(200).json('welcome login');
 });
